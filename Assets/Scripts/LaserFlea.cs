@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class LaserFlea : MonoBehaviour
 {
@@ -12,7 +10,7 @@ public class LaserFlea : MonoBehaviour
     [SerializeField] private GameObject projectile;
     [SerializeField] private Transform firePoint;
     [SerializeField] private float fireRate;
-     private float  nextFire;
+    private float nextFire;
 
     private float playerDisapearTime;
 
@@ -35,7 +33,7 @@ public class LaserFlea : MonoBehaviour
     {
         rigidbody = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-        player = GameObject.Find("Player").transform;
+        player = GameObject.FindGameObjectWithTag("Player").transform;
 
         contactFilter.useTriggers = false;
         contactFilter.SetLayerMask(Physics2D.GetLayerCollisionMask(gameObject.layer));
@@ -71,10 +69,9 @@ public class LaserFlea : MonoBehaviour
 
     private void Move()
     {
-        if(isGrounded)
+        if (isGrounded)
         {
             rigidbody.velocity = new Vector2(speed, rigidbody.velocity.y);
-            Debug.LogError(rigidbody.velocity);
             animator.SetBool("Walk", true);
         }
     }

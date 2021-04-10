@@ -34,7 +34,7 @@ public class DevourerHopper : MonoBehaviour
     {
         rigidbody = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-        player = GameObject.Find("Player").transform;
+        player = GameObject.FindGameObjectWithTag("Player").transform;
 
         contactFilter.useTriggers = false;
         contactFilter.SetLayerMask(Physics2D.GetLayerCollisionMask(gameObject.layer));

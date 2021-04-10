@@ -38,19 +38,16 @@ public class Projectile : MonoBehaviour
                     animator.SetBool("Impect", true);
                     Damage damage = collision.gameObject.GetComponent<Damage>();
                     damage.takeDamage(damageValue);
-                    Invoke(nameof(Destroy), hitImpectDuration);
                 }
                 break;
 
             case Character.DevourerHopper:
                 if (collision.gameObject.tag == "Player")
                 {
-                    transform.position = collision.gameObject.transform.position;
                     rigidbody.velocity = Vector2.zero;
                     animator.SetBool("Impect", true);
                     Damage damage = collision.gameObject.GetComponent<Damage>();
                     damage.takeDamage(damageValue);
-                    Invoke(nameof(Destroy), hitImpectDuration);
                 }
                 break;
 
@@ -60,15 +57,18 @@ public class Projectile : MonoBehaviour
                     rigidbody.velocity = Vector2.zero;
                     Damage damage = collision.gameObject.GetComponent<Damage>();
                     damage.takeDamage(damageValue);
-                    Invoke(nameof(Destroy), hitImpectDuration);
                 }
                 break;
         }
 
-
+        if(collision.gameObject.tag == "Platform" || collision.gameObject.tag == "Interactable" || collision.gameObject.tag == "Projectile" && collision.gameObject.GetComponent<Projectile>().characterType != characterType)
+        {
+            rigidbody.velocity = Vector2.zero;
+            animator.SetBool("Impect", true);
+        }
     }
 
-    public void Destroy()
+    private void Destroy()
     {
         Destroy(this.gameObject);
     }

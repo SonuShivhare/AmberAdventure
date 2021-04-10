@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1168071571032687028}
   m_Layer: 11
   m_Name: TX Village Props Crate Small (1)
-  m_TagString: Untagged
+  m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

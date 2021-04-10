@@ -1,6 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Damage : MonoBehaviour
 {
@@ -35,6 +34,8 @@ public class Damage : MonoBehaviour
     private void killMethod()
     {
         Destroy(this.gameObject);
+
+        if(this.gameObject.tag == "Player") SceneManager.LoadScene("Gameover");
     }
 
     private void resetCharacter()
