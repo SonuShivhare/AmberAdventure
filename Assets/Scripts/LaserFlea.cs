@@ -103,6 +103,21 @@ public class LaserFlea : MonoBehaviour
                 if (Time.time > playerDisapearTime) isFollowingPlayer = false;
             }
         }
+
+        count = Physics2D.Raycast(transform.position, transform.right, contactFilter, hitBuffer, 15f);
+
+        for (int i = 0; i < count; i++)
+        {
+            if (hitBuffer[i].collider.gameObject.tag == "Player")
+            {
+                isFollowingPlayer = true;
+                playerDisapearTime = Time.time + 5f;
+            }
+            else
+            {
+                if (Time.time > playerDisapearTime) isFollowingPlayer = false;
+            }
+        }
     }
 
     private void attackPlayer()
@@ -119,8 +134,7 @@ public class LaserFlea : MonoBehaviour
 
     private void LaunchAttack()
     {
-        GameObject temp = Instantiate(projectile, firePoint.position, firePoint.rotation);
-        temp.transform.Rotate(0, 180, 0);
+        Singleton.instance.laser.PlaceIntoScene(firePoint);
     }
 
     private void ResetAttack()

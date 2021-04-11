@@ -5,6 +5,7 @@ public class SceneLoader : MonoBehaviour
 {
     public void loadScene(int id)
     {
+        Time.timeScale = 1.0f;
         SceneManager.LoadScene(id);
     }
     public void QuitScene()

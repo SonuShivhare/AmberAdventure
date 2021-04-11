@@ -49,7 +49,7 @@ public class PlayerController : MonoBehaviour
 
         if (isAttacking && Time.time > nextFire)
         {
-            Instantiate(projectile1, firePoint1.position, firePoint1.rotation);
+            Singleton.instance.projectile1.PlaceIntoScene(firePoint1);
             isAttacking = false;
             animator.SetBool("Attack", false);
         }
@@ -64,7 +64,7 @@ public class PlayerController : MonoBehaviour
 
         if (isWalkAttacking && Time.time > nextFire)
         {
-            Instantiate(projectile1, firePoint1.position, firePoint1.rotation);
+            Singleton.instance.projectile1.PlaceIntoScene(firePoint1);
             isWalkAttacking = false;
             animator.SetBool("Walk Attack", false);
         }
@@ -79,7 +79,7 @@ public class PlayerController : MonoBehaviour
 
         if (isPowerAttacking && Time.time > nextFire)
         {
-            Instantiate(projectile2, firePoint2.position, firePoint2.rotation);
+            Singleton.instance.projectile2.PlaceIntoScene(firePoint2);
             isPowerAttacking = false;
             animator.SetBool("Power Attack", false);
         }

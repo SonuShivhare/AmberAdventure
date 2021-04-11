@@ -18,7 +18,6 @@ public class Popup_UI : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             isActive = true;
-            Debug.Log(other.gameObject.name);
             dialogueBox.SetActive(true);
         }
     }

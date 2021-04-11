@@ -136,6 +136,16 @@ PrefabInstance:
       propertyPath: playerSpeed
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 1335741322192529445, guid: b08b0a3d8256de54ab94f5009f0a6349,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4390182022874501893, guid: b08b0a3d8256de54ab94f5009f0a6349,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8571606451244482785, guid: b08b0a3d8256de54ab94f5009f0a6349,
         type: 3}
       propertyPath: m_RootOrder

@@ -107,6 +107,21 @@ public class DevourerHopper : MonoBehaviour
                 if (Time.time > playerDisapearTime) isFollowingPlayer = false;
             }
         }
+
+        count = Physics2D.Raycast(transform.position, transform.right, contactFilter, hitBuffer, enemyDetectionRange);
+
+        for (int i = 0; i < count; i++)
+        {
+            if (hitBuffer[i].collider.gameObject.tag == "Player")
+            {
+                isFollowingPlayer = true;
+                playerDisapearTime = Time.time + 2f;
+            }
+            else
+            {
+                if (Time.time > playerDisapearTime) isFollowingPlayer = false;
+            }
+        }
     }
 
     private void attackPlayer()
@@ -115,20 +130,22 @@ public class DevourerHopper : MonoBehaviour
         {
             isAlreadyAttacked = true;
             animator.SetBool("Attack", true);
-            Invoke(nameof(LaunchAttack), 0.8f);
             Invoke("ResetAttack", fireRate);
         }
     }
 
     private void LaunchAttack()
     {
-        GameObject temp = Instantiate(projectile, firePoint.position, firePoint.rotation);
-        temp.transform.Rotate(0, 180, 0);
+        Singleton.instance.poisonProjectile.PlaceIntoScene(firePoint);
+    }
+
+    private void StopAttack()
+    {
+        animator.SetBool("Attack", false);
     }
 
     private void ResetAttack()
     {
-        animator.SetBool("Attack", false);
         isAlreadyAttacked = false;
     }
 
