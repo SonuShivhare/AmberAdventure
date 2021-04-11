@@ -66,7 +66,6 @@ public class Projectile : MonoBehaviour
                 if (collision.gameObject.tag == "Player")
                 {
                     rigidbody.velocity = Vector2.zero;
-                    boxCollider2D.isTrigger = false;
                     Damage damage = collision.gameObject.GetComponent<Damage>();
                     damage.takeDamage(damageValue);
                 }
