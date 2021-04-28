@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using Cinemachine;
 
 public class PlayerController : MonoBehaviour
 {
@@ -6,7 +7,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Transform firePoint1;
     [SerializeField] private GameObject projectile2;
     [SerializeField] private Transform firePoint2;
-
+    [SerializeField] private CinemachineVirtualCamera CMMoveFront;
+    [SerializeField] private CinemachineVirtualCamera CMMoveBack;
 
 
     [SerializeField] private AudioSource audio;
@@ -36,6 +38,16 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         moveHorizontal = Input.GetAxis("Horizontal");
+        if(moveHorizontal > 0.1f)
+        {
+            CMMoveFront.Priority = 10;
+            CMMoveBack.Priority = 5;
+        }
+        else if(moveHorizontal < -0.1f)
+        {
+            CMMoveFront.Priority = 5;
+            CMMoveBack.Priority = 10;
+        }
 
         animator.SetFloat("Player Speed", Mathf.Abs(moveHorizontal));
 

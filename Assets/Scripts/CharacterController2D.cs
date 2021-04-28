@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-
 public class CharacterController2D : MonoBehaviour
 {
     [SerializeField] private float CharacterSpeed;

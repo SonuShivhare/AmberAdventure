@@ -401,7 +401,7 @@ MonoBehaviour:
   projectile: {fileID: 500193328704045216, guid: fd9d6a609e73ab84193b10fa56bdb8ff,
     type: 3}
   firePoint: {fileID: 5178532663328872978}
-  fireRate: 1
+  fireRate: 2
   jumpDelay: 1
 --- !u!114 &1987002356957148321
 MonoBehaviour:
